@@ -326,6 +326,7 @@ int main( int argc, char *argv[] )
 	   		 printf("%s",",");
 	   	 }
 	}
+	printf("%s\n","}");
 
 	// Close Port
 	closeModbus();
