@@ -92,7 +92,8 @@ int openModbus(void)
 	tcsetattr(uart0_filestream, TCSANOW, &options);
 	
 	return (0);
-}	
+}
+
 
 //*********************************************************************************
 // Read Holding Register using Command 0x03
@@ -182,24 +183,13 @@ void closeModbus(void)
 
 //***************** Pascal ************************
 //this program is used to read actual output status from modbus register 8 to 5
-//user input change: ./modbusReadOutputs 255 255 255 255 255 255 255 255 (all 8 output values to set from 0 to 255)
+//user input change: ./modbusReadOutputs 255 255 255 255 255 255 255 255 (all 8 output values to read from 0 to 255)
 
 int main( int argc, char *argv[] )
 {
 	int i = 0;
-	unsigned int inputs[8] = {0};
-	unsigned int oldOutputs[8] = {0};
-	unsigned int newOutputs[8] = {0};
-	char *keys[] = {"IP1","IP2","IP3","IP4","IP5","IP5","IP7","IP8"};
-
-
-	//get all 8 values from user input and store in array
-	if ( argc == 9 ) {
-		for (i=0; i<8; i++) {
-			newOutputs[i] = atoi(argv[i+1]);
-		}
-	}
-
+	unsigned int outputs[8] = {0};
+	char *keys[] = {"OP1","OP2","OP3","OP4","OP5","OP5","OP7","OP8"};
 
 	// Open port for reading and writing
 	if (openModbus() < 0) 
@@ -208,10 +198,9 @@ int main( int argc, char *argv[] )
 		return(-1);
     }
 
-	
 	// read OUTPUTS values from modbus (registers 8 to 15)
 	//(readHoldingRegister(slaveaddr, regaddr, &value, 2000)
-	if (readHoldingRegister(1, 8, &oldOutputs, 2000) < 0)
+	if (readHoldingRegister(1, 8, &outputs, 2000) < 0)
     {
 		printf("Failed to read register from mobus device !");
 		// Close Port
@@ -228,7 +217,7 @@ int main( int argc, char *argv[] )
 		printf("%c",'"');
 		printf("%s",":");
 		printf("%c",'"');
-		printf("%d",inputs[i]);
+		printf("%d",outputs[i]);
 		printf("%c",'"');
 		if (i<7) {
 	   		 printf("%s",",");
