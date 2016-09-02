@@ -8,7 +8,7 @@
 #include <linux/i2c-dev.h>
 #include <termios.h>
 
-//modification READ and WRITE 2016-08-28 09:20
+//new: modbus READ output resgister 2016-09-01 20:54
 
 int uart0_filestream = -1;
 int Success = 0;
@@ -183,7 +183,6 @@ void closeModbus(void)
 
 //***************** Pascal ************************
 //this program is used to read actual output status from modbus register 8 to 5
-//user input change: ./modbusReadOutputs 255 255 255 255 255 255 255 255 (all 8 output values to read from 0 to 255)
 
 int main( int argc, char *argv[] )
 {
