@@ -188,7 +188,7 @@ int main( int argc, char *argv[] )
 {
 	int i = 0;
 	unsigned int outputs[8] = {0};
-	char *keys[] = {"OP1","OP2","OP3","OP4","OP5","OP5","OP7","OP8"};
+	char *keys[] = {"OP1","OP2","OP3","OP4","OP5","OP6","OP7","OP8"};
 
 	// Open port for reading and writing
 	if (openModbus() < 0) 
