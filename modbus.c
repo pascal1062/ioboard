@@ -247,7 +247,7 @@ void closeModbus(void)
 int main()
 {
 	int i = 0;
-	char *keys[] = {"IP1","IP2","IP3","IP4","IP5","IP5","IP7","IP8"};
+	char *keys[] = {"IP1","IP2","IP3","IP4","IP5","IP6","IP7","IP8"};
 
 	unsigned int value[8] = {0};
 	//value = 1;
