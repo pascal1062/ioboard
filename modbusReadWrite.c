@@ -256,7 +256,7 @@ int main( int argc, char *argv[] )
 	unsigned int inputs[8] = {0};
 	unsigned int oldOutputs[8] = {0};
 	unsigned int newOutputs[8] = {0};
-	char *keys[] = {"IP1","IP2","IP3","IP4","IP5","IP5","IP7","IP8"};
+	char *keys[] = {"IP1","IP2","IP3","IP4","IP5","IP6","IP7","IP8"};
 
 
 	//get all 8 values from user input and store in array
